@@ -7,12 +7,11 @@ public class Main {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-        double average = list.stream()
+        list.stream()
                 .filter(avg -> avg % 2 == 0)
                 .mapToInt(Integer::intValue)
                 .average()
-                .orElse(0.0);
-        System.out.println("Среднее значение чисел = " + average);
+                .ifPresent(avg -> System.out.println("Среднее значение чисел = " + avg));
 
     }
 
